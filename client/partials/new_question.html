@@ -1,0 +1,33 @@
+<div ng-controller = 'QuestionsController'>
+
+    <h5>Welcome {{loggedin_user.name}}</h5>
+
+    <a ng-click="home_loggedin()">Home</a> | <a href="#new_question">Add a Question</a>
+    <a ng-click='logout()' class="pull-right">Logout</a>
+
+    <h4>Add New Question</h4>
+    <form name="AddQuestionForm" noValidate>
+
+        <div class="form-group">
+            <label for="question">Question: </label>
+            <textarea name="question" id="question" ng-model="newquestion.question_text" placeholder="Question" class="form-control" ng-minlength="10" required></textarea>
+        </div>
+        <div ng-messages="AddQuestionForm.question.$error" class="error" ng-if="submitted" role="alert">
+            <div ng-message="required">Please enter a question.</div>
+            <div ng-message="minlength">Question should be at least 10 characters.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Descripiton (optional): </label>
+            <textarea name="description" id="description" ng-model="newquestion.description" placeholder="Description" class="form-control"></textarea>
+        </div>
+
+        <a ng-click="home_loggedin()" class="btn btn-default" role="button">Cancel</a>
+        <input type="submit" value="Add Question" class="btn btn-primary"ng-click="addquestion()">
+
+
+    </form>
+
+
+
+</div>

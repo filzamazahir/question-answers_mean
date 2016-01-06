@@ -1,0 +1,26 @@
+.box {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.error {
+    color: red;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.success {
+    color: green;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.rightmargin {
+    margin-right: 10px;
+}

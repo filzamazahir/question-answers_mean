@@ -1,0 +1,22 @@
+<div ng-controller = 'QuestionsController'>
+
+    <h5>Welcome {{loggedin_user.name}}</h5>
+
+    <a ng-click="home_loggedin()">Home</a> | <a href="#new_question">Add another Question</a> |  <a href='#question/{{question._id}}/new_answer'>Answer this Question</a>
+    <a ng-click='logout()' class="pull-right">Logout</a>
+
+    <h3>{{question.question_text}}</h3>
+    <h4>{{question.description}}</h4>
+
+    <div ng-repeat="answer in question.answers | orderBy: answer.created_at" class="box">
+        <p>{{answer.postedby.name}}: </p>
+        <p><strong>{{answer.answer_text}}</strong></p>
+        <p>{{answer.details}}</p>
+
+        <a ng-click="likeAnAnswer(answer._id, question._id)" class="btn btn-default pull-right" role="button">Like</a>
+        <p class="pull-right rightmargin">{{answer.likes}} likes</p>
+        <br><br><br>
+    </div>
+
+
+</div>

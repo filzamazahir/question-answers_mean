@@ -1,0 +1,52 @@
+<div ng-controller='HomeController'>
+                
+    <!-- Login user here -->
+    <div ng-show= "not_loggedin">
+        <h4>Hello</h4>
+        <h5>Please enter your name to join/login and share your ideas!</h5>
+        <form class="form-inline" name="LoginUserForm" noValidate>
+            <div class="form-group">
+                <input type="text" name="name" ng-model="user.name" placeholder="Your Name" class="form-control" ng-minlength="2" required>
+            </div>
+            <input type="submit" value="Enter" class="btn btn-primary"ng-click="login()">
+
+            <div ng-messages="LoginUserForm.name.$error" class="error" ng-if="submitted" role="alert">
+                <div ng-message="required">Please enter user name.</div>
+                <div ng-message="minlength">User name should be at least 2 characters</div>
+            </div>
+
+        </form>
+        <br>
+    </div>
+
+    <div ng-hide="not_loggedin">
+
+        <h5>Welcome {{loggedin_user.name}}</h5>
+
+        <a href="#/">Home</a> | <a href="#new_question">Add a Question</a>
+        <a ng-click='logout()' class="pull-right">Logout</a>
+
+        <p><input type="text" ng-model="filter_name" placeholder="Search.." class="pull-right"></p>
+        <p class="success">{{question_added_msg}}</p>
+
+        <table class="table">
+            <thead>
+                <th>Question</th>
+                <th>No. of Answers</th>
+                <th>Actions</th>
+            </thead>
+
+            <tbody>
+
+                <tr ng-repeat="question in questions | filter: filter_name">
+                    <td>{{question.question_text}}</td>
+                    <td>{{question.answers_count}}</td>
+                    <td><a href='#question/{{question._id}}'>Show</a> 
+                        <a href='#question/{{question._id}}/new_answer'>Answer</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

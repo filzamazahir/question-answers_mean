@@ -1,0 +1,9 @@
+{
+  "name": "Full-Mean",
+  "description": "Dependencies for a full mean stack application",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "~4.10.0",
+    "mongoose": "^4.0.1"
+  }
+}

@@ -1,0 +1,37 @@
+<div ng-controller = 'AnswersController'>
+
+    <h5>Welcome {{loggedin_user.name}}</h5>
+
+    <a ng-click="home_loggedin()">Home</a> | <a href="#new_question">Add another Question</a>
+    <a ng-click='logout()' class="pull-right">Logout</a>
+
+    <h3>{{question.question_text}}</h3>
+    <h4>{{question.description}}</h4>
+
+
+    <form name="AddAnswerForm" noValidate>
+
+        <div class="form-group">
+            <label for="answer">Your Answer: </label>
+            <textarea name="answer" id="answer" ng-model="newanswer.answer_text" placeholder="Answer" class="form-control" ng-minlength="5" required></textarea>
+        </div>
+        <div ng-messages="AddAnswerForm.answer.$error" class="error" ng-if="submitted" role="alert">
+            <div ng-message="required">Please enter an answer.</div>
+            <div ng-message="minlength">Answer should be at least 5 characters.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="details">Supporting Details for your answer (optional): </label>
+            <textarea name="details" id="details" ng-model="newanswer.details" placeholder="Details" class="form-control"></textarea>
+        </div>
+
+        <a ng-click="home_loggedin()" class="btn btn-default" role="button">Cancel</a>
+        <input type="submit" value="Add Answer" class="btn btn-primary"ng-click="addanswer(question._id)">
+
+
+    </form>
+
+
+
+
+</div>
