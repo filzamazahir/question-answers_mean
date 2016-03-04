@@ -2,9 +2,9 @@
                 
     <!-- Login user here -->
     <div ng-show= "not_loggedin">
-        <h4>Hello</h4>
-        <h5>Please enter your name to join/login and share your ideas!</h5>
-        <form class="form-inline" name="LoginUserForm" noValidate>
+        <h3 class="text-center">Questions & Answers</h3>
+        <h5 class="text-center vertical-center">Please enter your name to join/login and share your ideas!</h5>
+        <form class="form-inline text-center" name="LoginUserForm" noValidate>
             <div class="form-group">
                 <input type="text" name="name" ng-model="user.name" placeholder="Your Name" class="form-control" ng-minlength="2" required>
             </div>
@@ -21,10 +21,9 @@
 
     <div ng-hide="not_loggedin">
 
-        <h5>Welcome {{loggedin_user.name}}</h5>
-
         <a href="#/">Home</a> | <a href="#new_question">Add a Question</a>
         <a ng-click='logout()' class="pull-right">Logout</a>
+        <h3>Welcome {{loggedin_user.name}}</h3>
 
         <p><input type="text" ng-model="filter_name" placeholder="Search.." class="pull-right"></p>
         <p class="success">{{question_added_msg}}</p>
@@ -41,7 +40,7 @@
                 <tr ng-repeat="question in questions | filter: filter_name">
                     <td>{{question.question_text}}</td>
                     <td>{{question.answers_count}}</td>
-                    <td><a href='#question/{{question._id}}'>Show</a> 
+                    <td><a href='#question/{{question._id}}'>Show</a> | 
                         <a href='#question/{{question._id}}/new_answer'>Answer</a></td>
                 </tr>
             </tbody>

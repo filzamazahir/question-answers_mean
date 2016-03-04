@@ -9,13 +9,15 @@
     <h4>{{question.description}}</h4>
 
     <div ng-repeat="answer in question.answers | orderBy: answer.created_at" class="box">
+    <a ng-click="likeAnAnswer(answer._id, question._id)" class="btn btn-default pull-right" role="button">Like</a>
+        <span class="pull-right rightmargin">{{answer.likes}} likes</span>
         <p>{{answer.postedby.name}}: </p>
+
         <p><strong>{{answer.answer_text}}</strong></p>
         <p>{{answer.details}}</p>
 
-        <a ng-click="likeAnAnswer(answer._id, question._id)" class="btn btn-default pull-right" role="button">Like</a>
-        <p class="pull-right rightmargin">{{answer.likes}} likes</p>
-        <br><br><br>
+        
+<!--         <br><br><br> -->
     </div>
 
 
